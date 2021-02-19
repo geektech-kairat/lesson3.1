@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imageBegin"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/nebo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Spinner
+            android:id="@+id/spinner_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:layout_marginBottom="250dp"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:outlineSpotShadowColor="@color/white">
+
+        </Spinner>
+
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Кыргызстан"
+            android:textColor="@color/white"
+            android:textSize="46sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner_city" />
+
+        <TextClock
+            android:id="@+id/clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="60dp"
+            android:format24Hour="hh:mm:ss a"
+            android:text="время"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageBegin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/country" />
+
+        <TextClock
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:format24Hour="dd-MMM-yyyy "
+            android:text="date"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/clock"
+
+            app:layout_constraintTop_toBottomOf="@id/clock" />
+
+        <TextView
+            android:id="@+id/weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="19 °6 "
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/clock" />
+
+        <TextView
+            android:id="@+id/weatherDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пасмурно"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/weather"
+            app:layout_constraintStart_toStartOf="@id/weather"
+            app:layout_constraintTop_toTopOf="@+id/date" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/camera"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/camera"
+        app:layout_constraintEnd_toStartOf="@+id/call"
+        app:layout_constraintTop_toBottomOf="@id/imageBegin"
+        android:background="@color/white"/>
+
+    <ImageButton
+        android:id="@+id/call"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/call"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageBegin" />
+
+    <ImageButton
+        android:id="@+id/chrome"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/browser"
+        android:background="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/call"
+        app:layout_constraintTop_toBottomOf="@id/imageBegin" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifStarts"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:rotation="61"
+        android:rotationY="45"
+        android:src="@drawable/stars"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

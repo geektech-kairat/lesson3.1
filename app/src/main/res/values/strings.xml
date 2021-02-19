@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">lesson3</string>
+    <string-array name="regions">
+        <item>Бишкек</item>
+        <item>Талас</item>
+        <item>Ош</item>
+        <item>Чуй</item>
+        <item>Ысык-Кол</item>
+        <item>Баткен</item>
+        <item>Джала-Абад</item>
+    </string-array>
+</resources>
