@@ -71,10 +71,10 @@
 
         <TextView
             android:id="@+id/weather"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="19 °6 "
+            android:layout_marginEnd="10dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,9 +82,10 @@
 
         <TextView
             android:id="@+id/weatherDown"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Пасмурно"
+            android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@id/weather"
             app:layout_constraintStart_toStartOf="@id/weather"

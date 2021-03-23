@@ -1,47 +1,27 @@
 package com.example.lesson3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
+import com.example.lesson3.Thread.Bishkek;
+import com.example.lesson3.Thread.Osh;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    TextView weather;
-    TextView weatherDown;
-    Document doc;
 
-    Thread myThread;
-    Runnable runnable;
+   public static TextView weather;
+   public static TextView weatherDown;
 
-
-    public void getData() {
-        try {
-            doc = Jsoup.connect("https://world-weather.ru/pogoda/kyrgyzstan/bishkek/").get();
-            Elements elements = doc.getElementsByClass("weather-now-number");
-            Log.e("ololo", "getData: ");
-            Element element = elements.get(0);
-        } catch (Exception e) {
-            Log.e("ololo", "getData: ", e);
-        }
-    }
 
     private String[] regions = {"Бишкек", "Ош", "Ысык-кол", "Баткен", "Чуй", "Талас", "Джала-Абад"};
 
@@ -51,17 +31,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setMyThread();
+//        setMyThread();
         weather = findViewById(R.id.weather);
         weatherDown = findViewById(R.id.weatherDown);
-
         region();
     }
 
     public void region() {
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item, regions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item, regions);
 
         Spinner spinner = findViewById(R.id.spinner_city);
         spinner.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
@@ -69,15 +48,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (position == 0) {
-            weather.setText("25 °6 ");
-            weatherDown.setText("Солнечно ");
+            Bishkek bishkek = new Bishkek();
+            bishkek.start();
+
+            Log.e("TAG", "onItemSelected: " + bishkek.getTemperature());
         } else if (position == 1) {
             weather.setText("25 °4 ");
             weatherDown.setText(" Птицы весело поют  \n на ветках деревьев. ");
@@ -103,11 +83,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void setMyThread(){
-        runnable = this::getData;
-        myThread = new Thread(runnable);
-        myThread.start();
-    }
+//    public void setMyThread(){
+//        runnable = this::getData;
+//        myThread = new Thread(runnable);
+//        myThread.start();
+//    }
 
 
 }
